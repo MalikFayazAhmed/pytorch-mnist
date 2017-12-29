@@ -60,7 +60,7 @@ if __name__ == '__main__':
             loss.backward()
             optimizer.step()
             if batch_index % 100 == 0:
-                print(f"TRAIN PHASE epoch={epoch:03d} iter={batch_index:03d} loss={loss.data[0]:.4f}")
+                print("TRAIN PHASE epoch={epoch:03d} iter={batch_index:03d} loss={loss.data[0]:.4f}")
 
 
     def test(epoch):
@@ -74,10 +74,10 @@ if __name__ == '__main__':
             loss = criterion(output, target)
             predict_target = output.data.max(1)[1]
             correct += predict_target.eq(target.data).cpu().sum()
-        print(f"TEST  PHASE epoch={epoch:03d} acc={correct/len(test_loader.dataset)*100:.2f}% loss={loss.data[0]:.4f}\n")
+        print("TEST  PHASE epoch={epoch:03d} acc={correct/len(test_loader.dataset)*100:.2f}% loss={loss.data[0]:.4f}\n")
 
 
-    max_epoch = 3
+    max_epoch = 30
     for epoch in range(max_epoch):
         train(epoch)
         test(epoch)

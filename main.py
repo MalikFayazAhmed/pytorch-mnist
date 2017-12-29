@@ -5,7 +5,7 @@ from flask import Flask, jsonify, render_template, request
 
 app = Flask(__name__)
 
-with open("/home/chenyaofo/workspace/mnist-pytorch/LeNet5.model", "rb") as f:
+with open("LeNet5.model", "rb") as f:
     net = pickle.load(f)
 
 
